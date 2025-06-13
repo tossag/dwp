@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High-Resolution 360° Photo Viewer</title>
+    <!-- Use Google Fonts for a clean, modern look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Include Pannellum library CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css">
+    <style>
+        /* Basic styling to make the viewer take up the entire screen */
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevents scrollbars */
+            font-family: 'Inter', sans-serif;
+            background-color: #000;
+        }
+        #panorama {
+            width: 100vw;
+            height: 100vh;
+        }
+        /* Customizing Pannellum controls for a better look */
+        .pnlm-load-box {
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+        .pnlm-title-box, .pnlm-author-box {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- The container where the 360 photo viewer will be rendered -->
+<div id="panorama"></div>
+
+<!-- Include Pannellum library JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+<script>
+// Initialize the Pannellum viewer
+pannellum.viewer('panorama', {
+    // The type of panorama
+    "type": "equirectangular",
+    
+    // URL of the high-resolution 360-degree image.
+    "panorama": "https://i.postimg.cc/05ynGk2P/1.jpg",
+    
+    // ---- Configuration Options ----
+    
+    // Automatically load the panorama
+    "autoLoad": true,
+    
+    // Automatically rotate the panorama. A slight rotation is nice.
+    "autoRotate": -0.5, // Negative value for counter-clockwise, positive for clockwise rotation speed
+    
+    // Display a title for the scene
+    "title": "St Giles' Cathedral, Edinburgh",
+    
+    // Display the author of the photo
+    "author": "Photo by Colin",
+    
+    // Set the initial horizontal angle of view
+    "hfov": 100,
+
+    // Hotspots can be added here if needed for the new image
+    "hotSpots": []
+});
+</script>
+
+</body>
+</html>
